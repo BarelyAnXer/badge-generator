@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- badges_v1_badgerequest.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples
