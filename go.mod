@@ -1,4 +1,5 @@
-module github.com/yourusername/my-kubebuilder-project
+module github.com/BarelyAnXer/badge-generator
+
 
 go 1.22.0
 
