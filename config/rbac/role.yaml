@@ -1,11 +1,32 @@
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  labels:
-    app.kubernetes.io/name: my-kubebuilder-project
-    app.kubernetes.io/managed-by: kustomize
   name: manager-role
 rules:
-- apiGroups: [""]
-  resources: ["pods"]
-  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - badges.example.com
+  resources:
+  - badgerequests
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - badges.example.com
+  resources:
+  - badgerequests/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - badges.example.com
+  resources:
+  - badgerequests/status
+  verbs:
+  - get
+  - patch
+  - update

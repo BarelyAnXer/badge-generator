@@ -25,17 +25,17 @@ import (
 
 // BadgeRequestSpec defines the desired state of BadgeRequest.
 type BadgeRequestSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
-
-	// Foo is an example field of BadgeRequest. Edit badgerequest_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Title              string   `json:"title"`            // Badge title
+	Theme              string   `json:"theme"`            // Badge theme
+	Icons              []string `json:"icons,omitempty"`  // List of icons
+	Colors             []string `json:"colors,omitempty"` // List of colors
+	AdditionalElements string   `json:"additionalElements"`
 }
 
 // BadgeRequestStatus defines the observed state of BadgeRequest.
 type BadgeRequestStatus struct {
-	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	Status    string `json:"status"`
+	OutputURL string `json:"outputURL"`
 }
 
 // +kubebuilder:object:root=true

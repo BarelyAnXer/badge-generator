@@ -47,9 +47,14 @@ type BadgeRequestReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.19.1/pkg/reconcile
 func (r *BadgeRequestReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	_ = log.FromContext(ctx)
+	log := log.FromContext(ctx)
 
 	// TODO(user): your logic here
+	var badgeRequest badgesv1.BadgeRequest
+
+	log.Info("Generating badge...", "Title", badgeRequest.Spec.Title)
+
+	log.Info("Badge generation completed", "Test", "test")
 
 	return ctrl.Result{}, nil
 }
