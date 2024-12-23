@@ -27,7 +27,7 @@ import (
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	badgesv1 "github.com/yourusername/my-kubebuilder-project/api/v1"
+	badgesv1 "github.com/BarelyAnXer/badge-generator/api/v1"
 )
 
 var _ = Describe("BadgeRequest Controller", func() {

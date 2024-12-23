@@ -1,6 +1,5 @@
 module github.com/BarelyAnXer/badge-generator
 
-
 go 1.22.0
 
 require (

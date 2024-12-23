@@ -33,7 +33,7 @@ import (
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	badgesv1 "github.com/yourusername/my-kubebuilder-project/api/v1"
+	badgesv1 "github.com/BarelyAnXer/badge-generator/api/v1"
 	// +kubebuilder:scaffold:imports
 )
 

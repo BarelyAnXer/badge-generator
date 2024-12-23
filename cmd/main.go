@@ -35,8 +35,8 @@ import (
 	metricsserver "sigs.k8s.io/controller-runtime/pkg/metrics/server"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
-	badgesv1 "github.com/yourusername/my-kubebuilder-project/api/v1"
-	"github.com/yourusername/my-kubebuilder-project/internal/controller"
+	badgesv1 "github.com/BarelyAnXer/badge-generator/api/v1"
+	"github.com/BarelyAnXer/badge-generator/internal/controller"
 	// +kubebuilder:scaffold:imports
 )
 
