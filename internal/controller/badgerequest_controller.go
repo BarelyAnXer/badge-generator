@@ -3,7 +3,9 @@ package controller
 import (
 	"context"
 	"fmt"
+	"time"
 
+	"golang.org/x/exp/rand"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
@@ -18,22 +20,32 @@ type BadgeRequestReconciler struct {
 }
 
 func (r *BadgeRequestReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	log := log.FromContext(ctx)
+	_ = log.FromContext(ctx)
+
+	// resty := resty.New()
+	// resp, err := resty.R().Get("")
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// 	return ctrl.Result{}, err
+	// }
+	// fmt.Println("Response:", resp.String())
 
 	var badgeRequest badgesv1.BadgeRequest
 	if err := r.Get(ctx, req.NamespacedName, &badgeRequest); err != nil {
 		return ctrl.Result{}, client.IgnoreNotFound(err)
 	}
 
-	generatedURL := fmt.Sprintf("https://example.com/badges/%s", badgeRequest.Spec.Title)
-	badgeRequest.Status.OutputURL = generatedURL
+	rand.Seed(uint64(time.Now().UnixNano()))
+	num1 := rand.Intn(301) + 200
+	num2 := rand.Intn(301) + 200
+
+	badgeRequest.Status.OutputURL = fmt.Sprintf("https://picsum.photos/%d/%d", num1, num2)
 	badgeRequest.Status.Status = "Completed"
 
 	if err := r.Status().Update(ctx, &badgeRequest); err != nil {
 		return ctrl.Result{}, err
 	}
 
-	log.Info("Badge generated", "Title", badgeRequest.Spec.Title, "URL", generatedURL)
 	return ctrl.Result{}, nil
 }
 
