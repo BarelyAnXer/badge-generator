@@ -336,7 +336,7 @@ spec:
         - --health-probe-bind-address=:8081
         command:
         - /manager
-        image: controller:latest
+        image: ghcr.io/my-kubebuilder-project:latest
         livenessProbe:
           httpGet:
             path: /healthz
