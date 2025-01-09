@@ -19,6 +19,7 @@ type BadgeRequestStatus struct {
 
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
+// +kubebuilder:resource:shortName=br;brs
 
 // BadgeRequest is the Schema for the badgerequests API.
 type BadgeRequest struct {

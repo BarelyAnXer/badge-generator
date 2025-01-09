@@ -11,6 +11,9 @@ spec:
     kind: BadgeRequest
     listKind: BadgeRequestList
     plural: badgerequests
+    shortNames:
+    - br
+    - brs
     singular: badgerequest
   scope: Namespaced
   versions:
